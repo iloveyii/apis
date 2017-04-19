@@ -76,22 +76,14 @@ class MyApi extends Api
                 if( ! empty($this->file)) {
                     parse_str($this->file,  $params);
                     if(isset($params['id']) && isset($this->cities[$params['id']])) {
-                        $id = $params['id'];
-                        unset($params['id']);
-                        $this->cities[$id] = $params;
-                        file_put_contents('city.json', json_encode($this->cities, JSON_PRETTY_PRINT));
-                        $msg = 'City updated: ' . $params['name'];
+                        $msg = 'City updated: ' . $this->addCity($params);
                     }
                 }
                 return $msg;
                 break;
             case 'POST':
                 if( ! empty($this->request) && isset($this->request['id'])) {
-                    $id = $this->request['id'];
-                    unset($this->request['id']);
-                    $this->cities[$id] = $this->request;
-                    file_put_contents('city.json', json_encode($this->cities, JSON_PRETTY_PRINT));
-                    return 'City added: ' . $this->request['name'];
+                    return 'City added: ' . $this->addCity($this->request);
                 }
                 break;
             case 'DELETE':
@@ -106,5 +98,15 @@ class MyApi extends Api
                 return $msg;
                 break;
         }
+    }
+
+    private function addCity($city)
+    {
+        $id = $city['id'];
+        unset($city['id']);
+        $this->cities[$id] = $city;
+        file_put_contents('city.json', json_encode($this->cities, JSON_PRETTY_PRINT));
+
+        return $city['name'];
     }
 }
