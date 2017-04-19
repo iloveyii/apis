@@ -24,5 +24,10 @@
         "name": "Ronneby",
         "population": "554353",
         "country": "Sweden"
+    },
+    "6": {
+        "name": "Karlskrona",
+        "population": "5435435",
+        "Country": "Sweden"
     }
 }

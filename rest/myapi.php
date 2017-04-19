@@ -80,7 +80,7 @@ class MyApi extends Api
                         unset($params['id']);
                         $this->cities[$id] = $params;
                         file_put_contents('city.json', json_encode($this->cities, JSON_PRETTY_PRINT));
-                        $msg = 'City updated: ' . $params['id'];
+                        $msg = 'City updated: ' . $params['name'];
                     }
                 }
                 return $msg;
@@ -91,7 +91,7 @@ class MyApi extends Api
                     unset($this->request['id']);
                     $this->cities[$id] = $this->request;
                     file_put_contents('city.json', json_encode($this->cities, JSON_PRETTY_PRINT));
-                    return 'City added: ' . $this->request['id'];
+                    return 'City added: ' . $this->request['name'];
                 }
                 break;
             case 'DELETE':
