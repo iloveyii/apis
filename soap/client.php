@@ -11,7 +11,7 @@ if( ! extension_loaded('soap') || ! class_exists("SOAPClient")) {
 
 $options = array(
     'uri' => 'MyNamespace',
-    'location' => 'http://hemlet.loc/service.php',
+    'location' => 'http://hemlet.loc/soap/service.php',
     'trace' => 1);
 $client = new SoapClient(NULL, $options);
 
