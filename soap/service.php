@@ -10,4 +10,4 @@ $options = array('uri' => 'http://hemlet.loc/');
 $server = new SoapServer(NULL, $options);
 $server->setClass('ServiceFunctions');
 $server->handle();
-error_log('Called service.' . PHP_EOL, 3 , './access.log');
+error_log('Called service. ' . date('Y-m-d H:i:s', time()) . PHP_EOL, 3 , './access.log');
