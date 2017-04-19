@@ -47,7 +47,8 @@ abstract class Api
      * @param $request
      * @throws Exception
      */
-    public function __construct($request) {
+    public function __construct($request)
+    {
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: *");
         header("Content-Type: application/json");
@@ -55,7 +56,7 @@ abstract class Api
         $this->args = explode('/', rtrim($request, '/'));
         $this->endpoint = array_shift($this->args);
 
-        if (array_key_exists(0, $this->args) && !is_numeric($this->args[0])) {
+        if (array_key_exists(0, $this->args) ) {
             $this->verb = array_shift($this->args);
         }
 
@@ -74,38 +75,41 @@ abstract class Api
         switch($this->method) {
             case 'DELETE':
             case 'POST':
-                $this->request = $this->_cleanInputs($_POST);
+                $this->request = $this->cleanInputs($_POST);
                 break;
             case 'GET':
-                $this->request = $this->_cleanInputs($_GET);
+                $this->request = $this->cleanInputs($_GET);
                 break;
             case 'PUT':
-                $this->request = $this->_cleanInputs($_GET);
+                $this->request = $this->cleanInputs($_GET);
                 $this->file = file_get_contents("php://input");
                 break;
             default:
-                $this->_response('Invalid Method', 405);
+                $this->response('Invalid Method', 405);
                 break;
         }
     }
 
-    public function processAPI() {
+    public function processRequest()
+    {
         if (method_exists($this, $this->endpoint)) {
-            return $this->_response($this->{$this->endpoint}($this->args));
+            return $this->response($this->{$this->endpoint}($this->args));
         }
-        return $this->_response("No Endpoint: $this->endpoint", 404);
+        return $this->response("No Endpoint: $this->endpoint", 404);
     }
 
-    private function _response($data, $status = 200) {
-        header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
+    private function response($data, $status = 200)
+    {
+        header("HTTP/1.1 " . $status . " " . $this->requestStatus($status));
         return json_encode($data);
     }
 
-    private function _cleanInputs($data) {
+    private function cleanInputs($data)
+    {
         $clean_input = Array();
         if (is_array($data)) {
             foreach ($data as $k => $v) {
-                $clean_input[$k] = $this->_cleanInputs($v);
+                $clean_input[$k] = $this->cleanInputs($v);
             }
         } else {
             $clean_input = trim(strip_tags($data));
@@ -113,7 +117,8 @@ abstract class Api
         return $clean_input;
     }
 
-    private function _requestStatus($code) {
+    private function requestStatus($code)
+    {
         $status = array(
             200 => 'OK',
             404 => 'Not Found',

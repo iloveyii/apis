@@ -1,0 +1,28 @@
+{
+    "1": {
+        "name": "Stockholm",
+        "population": 4587677,
+        "country": "Sweden"
+    },
+    "2": {
+        "name": "Gothunberg",
+        "population": 769979,
+        "country": "Sweden"
+    },
+    "3": {
+        "name": "Zurich",
+        "population": 979797,
+        "country": "Switzerland"
+    },
+    "4": {
+        "name": "London",
+        "population": 4243432,
+        "country": "UK"
+    },
+    "5": {
+        "id": "5",
+        "name": "Ronneby",
+        "population": "554353",
+        "country": "Sweden"
+    }
+}
