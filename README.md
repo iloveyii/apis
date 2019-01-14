@@ -1,7 +1,7 @@
-API
+APIs
 ===============================
 
-This is a php demo application which show the use of APIs. It is demonstrating the creation and consuming of three different kind of Apis i.e RESTful, RPC, and SOAP.
+This is a php demo application which shows the use of APIs. It is demonstrating the creation and consuming of three different kind of Apis i.e RESTful, RPC, and SOAP.
 
 ![Screenshot](http://apis.softhem.se/screenshot.png)
 # [Demo](http://apis.softhem.se/)
