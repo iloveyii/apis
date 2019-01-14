@@ -5,13 +5,16 @@
  * Date: 2017-04-19
  * Time: 11:50
  */
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 if( ! extension_loaded('soap') || ! class_exists("SOAPClient")) {
     die('Soap extension not installed');
 }
 
 $options = array(
     'uri' => 'MyNamespace',
-    'location' => 'http://hemlet.loc/soap/service.php',
+    'location' => 'http://api.loc/soap/service.php',
     'trace' => 1);
 $client = new SoapClient(NULL, $options);
 

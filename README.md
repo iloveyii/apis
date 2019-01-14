@@ -1,29 +1,25 @@
-# README #
+API
+===============================
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is a php demo application which show the use of APIs. It is demonstrating the creation and consuming of three different kind of Apis i.e RESTful, RPC, and SOAP.
 
-### What is this repository for? ###
+# [Demo](http://api.softhem.se/)
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+INSTALLATIONS
+---------------
+  * Clone the repository `git clone git@github.com:iloveyii/apis.git`.
+  * Point web browser to index.php or Create a virtual host using [vh](https://github.com/iloveyii/vh) `vh new api -p ~/api/index.php`
+  * Browse to [http://api.loc](http://api.loc) 
+  
 
-### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+DIRECTORY STRUCTURE
+-------------------
 
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+```
+rest                    contains files of rest api implementation
+rpc                     contains files of rpc api implementation
+soap                    contains files of soap api implementation
+conf.php                contain configuration 
+README.md               Readme file
+```

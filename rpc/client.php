@@ -5,6 +5,9 @@
  * Date: 2017-04-19
  * Time: 18:02
  */
+
+require_once '../conf.php';
+
 $arrayCountWords = [
     'method'=>'countWords',
     'paragraph'=>'How many words are here !!! Can you guess ??? '
@@ -16,7 +19,7 @@ $arrayGetDisplayName = [
     'last_name' => 'Doe'
 ];
 
-$url = 'http://hemlet.loc/rpc/service.php';
+$url = SERVER_URL . '/rpc/service.php';
 
 $requestUrl = sprintf("%s?%s", $url, http_build_query($arrayCountWords));
 $countWords = file_get_contents($requestUrl);

@@ -6,7 +6,9 @@
  * Time: 11:49
  */
 include 'ServiceFunctions.php';
-$options = array('uri' => 'http://hemlet.loc/soap/');
+include '../conf.php';
+
+$options = array('uri' => SERVER_URL . '/soap/');
 $server = new SoapServer(NULL, $options);
 $server->setClass('ServiceFunctions');
 $server->handle();
